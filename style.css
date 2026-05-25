@@ -1,129 +1,69 @@
 :root {
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
-    --accent: #60a5fa;
+    --bg: #0a0c10;
+    --card: #161b22;
+    --accent: #58a6ff;
+    --text: #c9d1d9;
+    --border: #30363d;
 }
 
 body {
-    background-color: #050505;
-    color: var(--text-primary);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
-    overflow-x: hidden;
     display: flex;
     justify-content: center;
-    min-height: 100vh;
+    padding: 50px 20px;
 }
 
-/* BACKGROUND GLOW BLOBS */
-.blob {
-    position: fixed;
-    top: 10%;
-    left: 20%;
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-    filter: blur(80px);
-    border-radius: 50%;
-    z-index: -1;
-    opacity: 0.4;
-}
+.terminal-container { max-width: 800px; width: 100%; }
 
-.blob-2 {
-    position: fixed;
-    bottom: 10%;
-    right: 20%;
-    width: 350px;
-    height: 350px;
-    background: linear-gradient(135deg, #4c1d95, #8b5cf6);
-    filter: blur(100px);
-    border-radius: 50%;
-    z-index: -1;
-    opacity: 0.3;
-}
-
-.container {
-    max-width: 650px;
-    width: 100%;
-    padding: 60px 20px;
-}
-
-/* THE GLASS CARD EFFECT */
-.glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px); /* This creates the frosting */
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 25px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-}
-
-header { text-align: center; }
+header { text-align: center; margin-bottom: 50px; }
 
 .profile-img {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 2px solid var(--accent);
-    margin-bottom: 15px;
-    object-fit: cover;
-}
-
-h1 { font-size: 2.2rem; margin: 10px 0; }
-.subtitle { color: var(--accent); font-weight: 500; margin: 0; }
-
-h2 { margin: 10px 0; font-size: 1.4rem; }
-.institute { color: var(--text-secondary); margin-bottom: 15px; font-style: italic; }
-
-.campus-img {
-    width: 100%;
-    height: 180px;
-    border-radius: 12px;
-    object-fit: cover;
-    margin-top: 10px;
-    opacity: 0.8;
-}
-
-.status-tag {
-    display: inline-block;
-    padding: 4px 10px;
-    background: rgba(96, 165, 250, 0.2);
-    color: var(--accent);
+    width: 150px;
+    height: 150px;
     border-radius: 10px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    text-transform: uppercase;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
+    margin-bottom: 15px;
 }
 
-.status-tag.alumni {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-secondary);
+/* Timeline Cards */
+.node {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    overflow: hidden;
 }
 
+.node-content { padding: 25px; flex: 1; }
+
+.inst-img {
+    width: 250px;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.node:hover .inst-img { opacity: 1; transform: scale(1.05); }
+
+/* Skills Grid */
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 15px;
 }
 
 .skills-grid span {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--accent);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--accent);
 }
 
-footer {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px !important;
-}
-
-footer a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
-footer a:hover { color: var(--accent); }
+footer { margin-top: 50px; text-align: center; border-top: 1px solid var(--border); padding-top: 20px; }
+a { color: var(--accent); text-decoration: none; }
